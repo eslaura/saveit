@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def create
     scrape_ikea
 
-    @item = Item.new(name: scrape_ikea[:name], description: scrape_ikea[:description], price: scrape_ikea[:price], url: scrape_ikea[:url])
+    @item = Item.new(name: scrape_ikea[:name], description: scrape_ikea[:description], price: scrape_ikea[:price], url: scrape_ikea[:url], src: scrape_ikea[:src])
     @item.user = current_user
 
     @item.save
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
         price = html_doc.css('#price1').text.split.join.gsub(/(\$|€)/,'').to_f
         src  = "http://www.ikea.com/" + html_doc.at('#productImg')['src']
         description = html_doc.css('#type').text.split.join
-    attributes = {name: name, price: price, description: description, url: @url}
+    attributes = {name: name, price: price, description: description, url: @url, src: src}
     return attributes
   end
 
