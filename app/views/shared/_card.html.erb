@@ -1,9 +1,10 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
-  </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
-</div>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= item.src %>);">
+    <div class="card-category"><%= item.description %></div>
+    <div class="card-description">
+    <h2><%= item.name %></h2>
+          <p><%= item.price %></p>
+          <p>Your price goal: <%= item.user_price %></p>
+          <%= link_to "", item_path(item), method: :delete,  data: { confirm: " Are you sure you want to delete this item?" }, class: "fa fa-trash" %>
+        </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      </div>
