@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update ]
 
-  resources :items, only: [ :new, :edit, :update, :create ]
+  resources :items, only: [ :new, :edit, :update, :create, :destroy ]
 
   get '/user_dashboard', to: 'items#user_items'
 

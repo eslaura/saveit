@@ -15,6 +15,22 @@ class ItemsController < ApplicationController
 
     @item.save
 
+    redirect_to edit_item_path(@item)
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(update_params)
+    redirect_to user_dashboard_path
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
     redirect_to user_dashboard_path
   end
 
@@ -39,5 +55,9 @@ class ItemsController < ApplicationController
 
   def url_params
     params.require(:item).permit(:url)
+  end
+
+  def update_params
+    params.require(:item).permit(:user_price)
   end
 end

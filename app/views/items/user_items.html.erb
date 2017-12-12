@@ -1,16 +1,21 @@
-<h1>Items#user_items</h1>
-<p>Find me in app/views/items/user_items.html.erb</p>
+<h1 class="text-center">Your items</h1>
 
+<div class="row">
     <% @items.each do |item| %>
+    <div class="col-xs-12 col-sm-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= item.src %>);">
         <div class="card-category"><%= item.description %></div>
         <div class="card-description">
           <h2><%= item.name %></h2>
           <p><%= item.price %></p>
+          <p>Your price goal: <%= item.user_price %></p>
+          <%= link_to "", item_path(item), method: :delete,  data: { confirm: " Are you sure you want to delete this item?" }, class: "fa fa-trash" %>
+          <%= link_to "", edit_item_path(item), class: "fa fa-pencil" %>
         </div>
         <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
+      </div>
       </div>
     <% end %>
+</div>
 
 <%= link_to "Add a new item", new_item_path %>
