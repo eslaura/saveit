@@ -1,0 +1,16 @@
+<h1>Items#user_items</h1>
+<p>Find me in app/views/items/user_items.html.erb</p>
+
+    <% @items.each do |item| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= item.src %>);">
+        <div class="card-category"><%= item.description %></div>
+        <div class="card-description">
+          <h2><%= item.name %></h2>
+          <p><%= item.price %></p>
+        </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <a class="card-link" href="#" ></a>
+      </div>
+    <% end %>
+
+<%= link_to "Add a new item", new_item_path %>
