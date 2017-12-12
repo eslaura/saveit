@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer :size
       t.integer :price
       t.references :user, foreign_key: true
-      t.boolen :favorite
+      t.boolean :favorite
       t.integer :user_price
 
       t.timestamps
