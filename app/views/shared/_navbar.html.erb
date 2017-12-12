@@ -11,8 +11,9 @@
 
       <!-- Links when logged in -->
       <%= link_to "Wish-List", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Items", user_dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Notifications", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to destroy_registration_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
