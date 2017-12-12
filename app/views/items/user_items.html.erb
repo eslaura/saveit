@@ -1,0 +1,20 @@
+<h1>Items#user_items</h1>
+<p>Find me in app/views/items/user_items.html.erb</p>
+
+<div class="list text-center">
+  <ul>
+    <% @items.each do |item| %>
+    <li>
+      <%= item.name %>
+    </li>
+    <li>
+      <%= item.description %>
+    </li>
+    <li>
+      <%= item.price %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "Add a new item", new_item_path %>
