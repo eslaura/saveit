@@ -40,13 +40,22 @@ class ItemsController < ApplicationController
   end
 
   def netaporter
-    url = 'https://api.net-a-porter.com/NAP/US/en/4/0/summaries/expand?pids=1006040'
-    @image = "https://cache.net-a-porter.com/images/products/1006040/1006040_in_pp.jpg"
+    url = "http://www.newlook.com/uk/json/product/productDetails.json?productCode=557306061"
     user_serialized = open(url).read
     info = JSON.parse(user_serialized)
-    @name = info['summaries'][0]['name']
-    @price = info['summaries'][0]['price']['amount']
+    @name = info['data']['name']
+    @price = info['data']['price']['value']
+    @image = info["data"]["primaryImage"]['url']
   end
+
+  # def netaporter
+  #   url = 'https://api.net-a-porter.com/NAP/US/en/4/0/summaries/expand?pids=1006040'
+  #   @image = "https://cache.net-a-porter.com/images/products/1006040/1006040_in_pp.jpg"
+  #   user_serialized = open(url).read
+  #   info = JSON.parse(user_serialized)
+  #   @name = info['summaries'][0]['name']
+  #   @price = info['summaries'][0]['price']['amount']
+  # end
 
   private
 
