@@ -5,6 +5,12 @@
 
   <% end %>
 
+  <%= simple_form_for Item.new, html: {class: 'form-inline'} do |f| %>
+    <%= f.input :url, placeholder: "*******", label: false%>
+    <%= f.submit "start saving", class: "btn btn-primary" %>
+  <% end %>
+
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @item = Item.new
   end
 
   private

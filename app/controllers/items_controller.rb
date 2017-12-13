@@ -37,9 +37,7 @@ class ItemsController < ApplicationController
   def user_items
     @items = Item.where(user: current_user)
   end
-
-
-
+  
   private
 
   def scrape(url)
