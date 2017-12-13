@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   def user_items
     @items = Item.where(user: current_user)
   end
-  
+
   private
 
   def scrape(url)
@@ -86,6 +86,7 @@ class ItemsController < ApplicationController
     url = info['data']['attributes']['product-summary']['product-site-map-pdp-url']
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
+    description = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes'].join(",")
     attributes = {name: name, price: price, url: url, src: src, description: description}
     return attributes
   end
