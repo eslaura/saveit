@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
+require 'json'
 
 class ItemsController < ApplicationController
 
@@ -38,6 +39,14 @@ class ItemsController < ApplicationController
     @items = Item.where(user: current_user)
   end
 
+  def netaporter
+    url = 'https://api.net-a-porter.com/NAP/US/en/4/0/summaries/expand?pids=1006040'
+    @image = "https://cache.net-a-porter.com/images/products/1006040/1006040_in_pp.jpg"
+    user_serialized = open(url).read
+    info = JSON.parse(user_serialized)
+    @name = info['summaries'][0]['name']
+    @price = info['summaries'][0]['price']['amount']
+  end
 
   private
 
@@ -52,6 +61,8 @@ class ItemsController < ApplicationController
     attributes = {name: name, price: price, description: description, url: @url, src: src}
     return attributes
   end
+
+
 
   def url_params
     params.require(:item).permit(:url)
