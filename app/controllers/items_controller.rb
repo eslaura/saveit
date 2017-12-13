@@ -10,12 +10,16 @@ class ItemsController < ApplicationController
 
   def create
     scrape = scrape(url_params[:url])
-    @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src])
-    @item.user = current_user
+    if scrape == false
+      render 'user_items'
+    else
+      @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src])
+      @item.user = current_user
 
-    @item.save
+      @item.save
 
-    redirect_to edit_item_path(@item)
+      redirect_to edit_item_path(@item)
+    end
   end
 
   def edit
@@ -41,6 +45,7 @@ class ItemsController < ApplicationController
   private
 
   def scrape(url)
+    @items = Item.where(user: current_user)
     if url.include? "ikea"
       scrape_ikea
     elsif url.include? "net-a-porter"
@@ -50,7 +55,7 @@ class ItemsController < ApplicationController
     elsif url.include? "newlook"
       scrape_newlook
     else
-      render root_path
+      return false
     end
   end
 
