@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
 
   def create
     scrape = scrape(url_params[:url])
-    raise
     @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src])
     @item.user = current_user
 
@@ -50,6 +49,10 @@ class ItemsController < ApplicationController
       scrape_netaporter
     elsif url.include? "lululemon"
       scrape_lululemon
+    elsif url.include? "newlook"
+      scrape_newlook
+    else
+      render root_path
     end
   end
 
@@ -73,32 +76,48 @@ class ItemsController < ApplicationController
     return attributes
   end
 
-  def scrape_netaporter
-    url = url_params[:url]
-    product_id = url[/product\/\d*/].sub(/product\//, '')
-    url = "https://api.net-a-porter.com/NAP/US/en/4/0/summaries/expand?pids=#{product_id}"
-    src = "https://cache.net-a-porter.com/images/products/#{product_id}/#{product_id}_in_pp.jpg"
-    user_serialized = open(url).read
-    info = JSON.parse(user_serialized)
-    name = info['summaries'][0]['name']
-    price = info['summaries'][0]['price']['amount']
-    attributes = {name: name, price: price, url: url, src: src, }
-    return attributes
-  end
-
   def scrape_lululemon
-   url = "https://shop.lululemon.com/p/women-sports-bras/Energy-Bra-Nulux-JAC/_/prod8330193?color=31959"
-    url_chunk = #TAKE ONLY (from the 'p' to before the ?)'p/women-sports-bras/Energy-Bra-Nulux-JAC/_/prod8330193'
+    url = url_params[:url]
+    url_chunk = url[/p\/.*\?/].chomp("?")
     api = "https://shop.lululemon.com/api/#{url_chunk}"
     user_serialized = open(api).read
     info = JSON.parse(user_serialized)
-    @name = info['data']['attributes']['product-summary']['product-name']
-    @price = info['data']['attributes']['product-summary']['list-price']
-    @description = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes']
-    @category = info['data']['attributes']['product-summary']['product-category']
-    @url = info['data']['attributes']['product-summary']['product-site-map-pdp-url']
-    @src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
-    @color = info['data']['attributes']['product-carousel'][0]['swatch-image']
+    name = info['data']['attributes']['product-summary']['product-name']
+    price = info['data']['attributes']['product-summary']['list-price']
+    category = info['data']['attributes']['product-summary']['product-category']
+    url = info['data']['attributes']['product-summary']['product-site-map-pdp-url']
+    src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
+    color = info['data']['attributes']['product-carousel'][0]['swatch-image']
+    attributes = {name: name, price: price, url: url, src: src, description: description}
+    return attributes
   end
+
+  def scrape_newlook
+    url = url_params[:url]
+    product_id = url[/p\/\d+/].sub("p/","")
+    url = "http://www.newlook.com/uk/json/product/productDetails.json?productCode=#{product_id}"
+      user_serialized = open(url).read
+      info = JSON.parse(user_serialized)
+      name = info['data']['name']
+      price = info['data']['price']['value']
+      src = info["data"]["primaryImage"]['url']
+    attributes = {name: name, price: price, url: url, src: src}
+    return attributes
+  end
+
+  # https://www.net-a-porter.com/es/en/product/994243/stella_mccartney/bryce-melton-wool-blend-coat
+  # https://api.net-a-porter.com/NAP/ES/en/4/0/summaries/expand?pids=899702
+  # def scrape_netaporter
+  #   url = url_params[:url]
+  #   product_id = url[/product\/\d*/].sub(/product\//, '')
+  #   url = "https://api.net-a-porter.com/NAP/US/en/4/0/summaries/expand?pids=#{product_id}"
+  #   src = "https://cache.net-a-porter.com/images/products/#{product_id}/#{product_id}_in_pp.jpg"
+  #   user_serialized = open(url).read
+  #   info = JSON.parse(user_serialized)
+  #   name = info['summaries'][0]['name']
+  #   price = info['summaries'][0]['price']['amount']
+  #   attributes = {name: name, price: price, url: url, src: src}
+  #   return attributes
+  # end
 end
 
