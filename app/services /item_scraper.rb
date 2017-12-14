@@ -31,7 +31,7 @@ class ItemScraper
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
     name = info['data']['attributes']['product-summary']['product-name']
-    price = info['data']['attributes']['product-summary']['list-price']
+    price = info['data']['attributes']['product-summary']['list-price'].to_f.round(2)
     category = info['data']['attributes']['product-summary']['product-category']
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
@@ -46,7 +46,7 @@ class ItemScraper
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
     name = info['data']['name']
-    price = info['data']['price']['value']
+    price = info['data']['price']['value'].to_f.round(2)
     src = info["data"]["primaryImage"]['url']
     attributes = {name: name, price: price, url_api: url_api, src: src, url: url, store: "NewLook"}
     return attributes
