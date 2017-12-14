@@ -9,12 +9,15 @@ class SavePrice
       if item.url.include? "ikea"
         price = scrape_ikea_price(item.url)
         Price.create(item_id: item.id, price: price)
+        item.update(price: price) if item.price != price
       elsif item.url.include? "lululemon"
         price = scrape_lululemon_price(item.url)
         Price.create(item_id: item.id, price: price)
+        item.update(price: price) if item.price != price
       elsif item.url.include? "newlook"
         price = scrape_newlook_price(item.url)
         Price.create(item_id: item.id, price: price)
+        item.update(price: price) if item.price != price
       end
     end
   end

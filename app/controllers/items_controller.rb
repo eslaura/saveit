@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
     else
       @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src])
       @item.user = current_user
-
       @item.save
 
       redirect_to edit_item_path(@item)
@@ -98,12 +97,12 @@ class ItemsController < ApplicationController
   def scrape_newlook
     url = url_params[:url]
     product_id = url[/p\/\d+/].sub("p/","")
-    url_api = "http://www.newlook.com/uk/json/product/productDetails.json?productCode=#{product_id}"
-      user_serialized = open(url_api).read
-      info = JSON.parse(user_serialized)
-      name = info['data']['name']
-      price = info['data']['price']['value']
-      src = info["data"]["primaryImage"]['url']
+    url_api = "http://www.newlook.com/de/json/product/productDetails.json?productCode=#{product_id}"
+    user_serialized = open(url_api).read
+    info = JSON.parse(user_serialized)
+    name = info['data']['name']
+    price = info['data']['price']['value']
+    src = info["data"]["primaryImage"]['url']
     attributes = {name: name, price: price, url: url_api, src: src}
     return attributes
   end
