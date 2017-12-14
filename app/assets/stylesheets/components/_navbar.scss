@@ -1,15 +1,28 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
-  transition: all 0.3s ease;
-  height: 70px;
+  // transition: all 0.3s ease;
+  height: 150px;
   padding: 0px 30px;
-  display: flex;
+  // display: flex;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+
 }
 
+.logo {
+  text-transform: uppercase;
+  padding:40px;
+}
+
+.line{
+  background-color:black;
+  height: 5px;
+  width: 70%;
+  margin: auto;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -26,22 +39,28 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 5px;
+  color:black;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
   color: black;
-  font-size: 14px;
+  font-size: 10px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: pink;
   text-decoration: none;
 }
 
