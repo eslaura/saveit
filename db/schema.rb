@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214145746) do
+
+ActiveRecord::Schema.define(version: 20171214165740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +41,17 @@ ActiveRecord::Schema.define(version: 20171214145746) do
     t.float    "price"
     t.integer  "user_id"
     t.boolean  "favorite"
-    t.integer  "user_price"
+    t.float    "user_price"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "src"
+    t.string   "url_api"
+    t.boolean  "notification"
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "prices", force: :cascade do |t|
-    t.integer  "price"
+    t.float    "price"
     t.string   "currency"
     t.integer  "item_id"
     t.datetime "created_at", null: false
