@@ -1,0 +1,6 @@
+<div class="tiny-banner">
+<%= simple_form_for @item, html: {class: 'banner-form form-inline'} do |f| %>
+<%= f.input :url, placeholder: "paste your url here", label: false%>
+<%= f.submit "start saving", class: "btn form-submit-button" %>
+<% end %>
+</div>

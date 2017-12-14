@@ -3,26 +3,35 @@
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   // transition: all 0.3s ease;
-  height: 150px;
+  height: 135px;
   padding: 0px 30px;
   // display: flex;
   align-items: center;
   text-align: center;
   width: 100%;
-
+  margin-top: 30px;
 }
 
 .logo {
   text-transform: uppercase;
-  padding:40px;
+  font-size: 32px;
+  padding: 25px 0;
   text-decoration:none;
+  font-family: 'Sarpanch', Helvetica;
+  color: black;
+  display: block;
+  &:hover, &:active, &:visited, &:focus {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .line{
   background-color:black;
   height: 5px;
   width: 70%;
-  margin: auto;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 /* Logo */
 .navbar-wagon-brand img {

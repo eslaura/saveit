@@ -15,3 +15,26 @@
     margin-bottom: 20px;
   }
 }
+
+.pages-home {
+  .banner-form {
+    margin-top: 60px;
+  }
+}
+
+
+.banner-form {
+  input {
+      border-radius: 0;
+    border: 2px solid black;
+    color: black;
+  }
+  input[type=url]::placeholder {
+    font-size: 14px;
+  }
+}
+
+.form-submit-button {
+  background-color: yellow;
+  color: black;
+}
