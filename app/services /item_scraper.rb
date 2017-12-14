@@ -21,7 +21,7 @@ class ItemScraper
     price = html_doc.css('#price1').text.split.join.gsub(/(\$|€)/,'').to_f
     src  = "http://www.ikea.com/" + html_doc.at('#productImg')['src']
     description = html_doc.css('#type').text.split.join
-    attributes = {name: name, price: price, description: description, url: url, src: src}
+    attributes = {name: name, price: price, description: description, url: url, src: src, store: "Ikea"}
     return attributes
   end
 
@@ -36,7 +36,7 @@ class ItemScraper
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
     description = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes'].join(",")
-    attributes = {name: name, price: price, url_api: url_api, src: src, description: description, url: url}
+    attributes = {name: name, price: price, url_api: url_api, src: src, description: description, url: url, store: "LuLuLemon"}
     return attributes
   end
 
@@ -48,7 +48,7 @@ class ItemScraper
     name = info['data']['name']
     price = info['data']['price']['value']
     src = info["data"]["primaryImage"]['url']
-    attributes = {name: name, price: price, url_api: url_api, src: src, url: url}
+    attributes = {name: name, price: price, url_api: url_api, src: src, url: url, store: "NewLook"}
     return attributes
   end
 

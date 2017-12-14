@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     if scrape == false
       render 'user_items'
     else
-      @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src], url_api: scrape[:url_api])
+      @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src], url_api: scrape[:url_api], original_store: scrape[:store])
       @item.user = current_user
       @item.save
 
