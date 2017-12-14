@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     if scrape == false
       render 'user_items'
     else
-      @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src])
+      @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src], url_api: scrape[:url_api])
       @item.user = current_user
       @item.save
 
@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
     description = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes'].join(",")
-    attributes = {name: name, price: price, url: url_api, src: src, description: description}
+    attributes = {name: name, price: price, url_api: url_api, src: src, description: description, url: url}
     return attributes
   end
 
@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
     name = info['data']['name']
     price = info['data']['price']['value']
     src = info["data"]["primaryImage"]['url']
-    attributes = {name: name, price: price, url: url_api, src: src}
+    attributes = {name: name, price: price, url_api: url_api, src: src, url: url}
     return attributes
   end
 
