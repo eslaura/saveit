@@ -11,11 +11,11 @@ class SavePrice
         Price.create(item_id: item.id, price: price)
         item.update(price: price) if item.price != price
       elsif item.url.include? "lululemon"
-        price = scrape_lululemon_price(item.url)
+        price = scrape_lululemon_price(item.url_api)
         Price.create(item_id: item.id, price: price)
         item.update(price: price) if item.price != price
       elsif item.url.include? "newlook"
-        price = scrape_newlook_price(item.url)
+        price = scrape_newlook_price(item.url_api)
         Price.create(item_id: item.id, price: price)
         item.update(price: price) if item.price != price
       end
