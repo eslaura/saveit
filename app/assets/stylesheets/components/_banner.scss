@@ -25,3 +25,39 @@
 .form-horizontal{
   display:inline-block;
 }
+
+@import '//fonts.googleapis.com/css?family=Cutive';
+
+$font-family-base: 'Cutive', serif;;
+$font-size-root: 14px;
+$font-size-base: 1rem;
+$line-height-base: 1.4;
+
+$color-black: #222;
+$color-white: #ededed;
+$color-red: #c92b2b;
+
+$spacing: 2rem;
+$spacing-large: $spacing * 3;
+
+
+@keyframes blink {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.actor__content--typing::after {
+  content: '|';
+  animation: blink 500ms infinite;
+}
+
+.scene{
+      top: 30%;
+    right: 70%;
+    /* text-align: center; */
+    position: absolute;
+    font-size: 50px;
+    font-family: cutive;
+    color: #F3F315;
+
+}
