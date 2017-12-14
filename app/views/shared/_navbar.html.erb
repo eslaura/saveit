@@ -1,13 +1,12 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%#= cl_image_tag("SaveItLogo.png", height: 50)%>
-
+    <%= cl_image_tag("SaveItLogo.png", height: 50)%>
   <% end %>
 
   <%= simple_form_for Item.new, html: {class: 'form-inline'} do |f| %>
     <%= f.input :url, placeholder: "*******", label: false%>
-    <%= f.submit "start saving", class: "btn btn-primary" %>
+    <%= f.submit "start saving", class: "btn btn-medium" %>
   <% end %>
 
 

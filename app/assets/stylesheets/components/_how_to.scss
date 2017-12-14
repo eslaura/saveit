@@ -1,9 +1,16 @@
+.how_to_banner{
+  color:black;
+  background-color: white;
+}
+
 .how_to{
   display:flex;
 }
 
-.how_to_item{
+.how_to_item p{
   padding-left: 70px;
   padding-right: 70px;
-
+  color: black;
 }
+
+
