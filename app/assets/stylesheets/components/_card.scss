@@ -8,11 +8,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
+  height: 370px;
   width: 100%;
   color: black;
   // border: 1px solid black;
   margin-bottom: 30px;
+  justify-content: space-between;
 }
 
 .img-frame{
@@ -28,8 +29,18 @@
 }
 
 .icon-tags{
-  align-self: right;
-  margin-bottom: 15px;
+  // align-self: right;
+  // margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  a {
+    margin: 0 5px;
+    text-decoration: none;
+    &:hover, &:active, &:focus, &:visited {
+      text-decoration: none;
+    }
+  }
 }
 
 .card-store{
@@ -77,8 +88,8 @@
   z-index: 999999 !important;
 }
 
-// .sticky-url{
-//   position: fixed;
-//   top: 36px;
-//   width: 100%
-// }
+.sticky-url{
+  position: sticky;
+  top: 36px;
+  z-index: 99999999999999999999;
+  }

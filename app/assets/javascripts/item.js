@@ -1,6 +1,8 @@
-document.querySelectorAll("div.favorite-icon").forEach((icon) => {
+document.querySelectorAll(".favorite-icon i").forEach((icon) => {
   icon.addEventListener("click", (event) => {
-    event.currentTarget.classList.toggle("favorite-icon");
+    event.preventDefault()
+    event.currentTarget.classList.toggle("fa-heart-o");
+     event.currentTarget.classList.toggle("fa-heart");
   });
 });
 

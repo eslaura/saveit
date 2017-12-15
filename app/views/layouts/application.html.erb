@@ -17,6 +17,7 @@
     <div class="all-content">
       <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -25,7 +26,7 @@
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
+    <%= yield(:js) %>
 
   </body>
 </html>
