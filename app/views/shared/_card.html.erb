@@ -1,11 +1,7 @@
     <div class="card">
-
-      <div class="img-frame trigger" >
+      <div class="img-frame" >
         <!-- The Modal -->
-        <!-- Button trigger modal -->
-
         <%= render partial: "shared/modal_show", locals: { item: item } %>
-
       </div>
       <div class='icon-tags'>
         <%= link_to "", root_path, class: "fa fa-heart-o" %>
@@ -20,6 +16,7 @@
       <div class="card-item-price">
         <p><%= item.price %>€</p>
       </div>
+
       <!-- <p>Your price goal: <%= item.user_price %></p> -->
 
       <div>
