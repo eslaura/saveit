@@ -13,6 +13,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
+gem 'omniauth-facebook'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -33,3 +34,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+
