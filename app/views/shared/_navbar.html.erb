@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
 
-  <div class="logo"><%= link_to "Save it", "/", class: "logo" %></div>
+  <%= link_to "Save it", "/", class: "logo" %>
   <div class="line"></div>
 
  <%#= simple_form_for Item.new, html: {class: 'form-inline'} do |f| %>
@@ -21,9 +21,16 @@
       <%= link_to "My Items", user_dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Notifications", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to destroy_registration_session_path, method: :delete do %>
+      <%= link_to destroy_registration_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
                  <%= t(".sign_out", default: "Log out") %>
               <% end %>
+      <% else %>
+      <%= link_to new_registration_session_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Log in") %>
+                 <% end  %>
+      <%= link_to new_registration_registration_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Sign up") %>
+                 <% end  %>
     <% end %>
   </div>
 

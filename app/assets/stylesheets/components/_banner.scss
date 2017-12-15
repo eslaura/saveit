@@ -2,13 +2,29 @@
   color: white;
   text-align: center;
   height: 65vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
+/* if you have a 70px navbar => height: calc(100vh - 70px); */
+background-size: cover !important;
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 968px;
+margin: 0 auto;
+width: 100%;
 }
+
+.tiny-banner {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 968px;
+  margin: 0 auto;
+  width: 100%;
+      background-image: url(http://wpmedia.o.canada.com/2014/09/455782102.jpg);
+    background-position-y: 119px;
+    background-size: cover;
+}
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
@@ -52,12 +68,12 @@ $spacing-large: $spacing * 3;
 }
 
 .scene{
-      top: 30%;
-    right: 70%;
-    /* text-align: center; */
-    position: absolute;
-    font-size: 50px;
-    font-family: cutive;
-    color: #F3F315;
+  top: 40%;
+  right: 30%;
+/* text-align: center; */
+position: absolute;
+font-size: 70px;
+font-family: 'Sarpanch', Helvetica;
+color: #F3F315;
 
 }
