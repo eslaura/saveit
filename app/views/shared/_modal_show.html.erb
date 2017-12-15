@@ -1,6 +1,5 @@
   <button type="button" data-toggle="modal" data-target="#myModal-<%= item.id %>">
-
-  <%= image_tag item.src, id:'img', data:{ id: item.id }%>
+    <%= image_tag item.src, id:'img', data:{ id: item.id }%>
   </button>
 
   <!-- Modal -->
@@ -12,12 +11,29 @@
           <h4 class="modal-title" id="myModalLabel"><%= item.name %></h4>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-9">
+                <%= image_tag item.src, id:'img', data:{ id: item.id }%></div>
+                <div class="row">
+                  <div class="col-8 col-sm-6">
+                    <strong>Price:</strong> <%= item.price %>€ <br>
+                    <strong>Target Price:</strong> <%= item.user_price %>€
+
+                  </div>
+                  <div class="col-4 col-sm-6">
+                    <strong>Store:</strong> <%= item.original_store %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="checkbox">
+              <label class="pull-left"><input type="checkbox" value="">Notify Me</label>
+            </div>
+            <a href="<%= item.url %>" target="_blank" class="btn btn-primary">BUY</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
