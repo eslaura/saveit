@@ -4,14 +4,20 @@
         <%= render partial: "shared/modal_show", locals: { item: item } %>
       </div>
       <div class='icon-tags'>
-        <div class="fa fa-heart-o favorite-icon"></div>
-        <%= link_to "", edit_item_path(item), class: "fa fa-pencil" %>
-        <%= link_to "", item_path(item), method: :delete,  data: { confirm: " Are you sure you want to delete this item?" }, class: "fa fa-times" %>
+        <%= link_to "#", class: "favorite-icon" do %>
+        <i class="fa fa-heart-o"></i>
+        <% end %>
+        <%= link_to edit_item_path(item) do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to item_path(item), method: :delete,  data: { confirm: " Are you sure you want to delete this item?" } do %>
+          <i class="fa fa-times"></i>
+        <% end %>
       </div>
 
       <div class="card-store"><%= item.original_store %></div>
       <div class="card-item-name">
-        <%= item.name %>
+        <%= truncate item.name, length: 35 %>
       </div>
       <div class="card-item-price">
         <p><%= item.price %>€</p>
@@ -19,8 +25,6 @@
 
       <!-- <p>Your price goal: <%= item.user_price %></p> -->
 
-      <div>
         <%= link_to "BUY", item.url, target: "_blank", class:"btn card-button" %>
-      </div>
 
     </div>
