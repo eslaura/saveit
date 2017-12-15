@@ -24,6 +24,13 @@
       <%= link_to destroy_registration_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
                  <%= t(".sign_out", default: "Log out") %>
               <% end %>
+      <% else %>
+      <%= link_to new_registration_session_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Log in") %>
+                 <% end  %>
+      <%= link_to new_registration_registration_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Sign up") %>
+                 <% end  %>
     <% end %>
   </div>
 
