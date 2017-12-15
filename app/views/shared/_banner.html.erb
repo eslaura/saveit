@@ -1,16 +1,15 @@
-<div class="banner" style="background-color: black">
+<div class="banner" style="background-image: url('<%= image_path 'banner'%>');">
   <div class="banner-content">
-    <div> <%= image_tag 'banner'%> </div>
-      <%#= simple_form_for @item, html: {class: 'form-inline'} do |f| %>
-       <%#= f.input :url, placeholder: "*******", label: false%>
-       <%#= f.submit "start saving", class: "btn btn-" %>
-       <%# end %>
     <main class="scene">
       <div class="actor">
-        <div class="actor__prefix">-</div>
+<!--         <div class="actor__prefix">-</div> -->
         <div id="luke" class="actor__content"></div>
       </div>
     </main>
+      <%= simple_form_for @item, html: {class: 'banner-form form-inline'} do |f| %>
+       <%= f.input :url, placeholder: "paste your url here", label: false%>
+       <%= f.submit "start saving", class: "btn form-submit-button" %>
+       <% end %>
   </div>
 </div>
 

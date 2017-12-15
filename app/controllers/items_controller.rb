@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def user_items
+    @item = Item.new
     @items = Item.where(user: current_user)
   end
 

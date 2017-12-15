@@ -2,12 +2,12 @@
   background: black;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   width: 100%;
-  margin:auto;
+  // margin:auto;
 }
 .footer-links {
   display: flex;
@@ -18,7 +18,7 @@
   color: #F3F315;
   opacity: 1;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
