@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 450px;
+  height: 400px;
   width: 100%;
   color: black;
   // border: 1px solid black;
@@ -16,12 +16,15 @@
 }
 
 .img-frame{
-  // height:300px;
+  // height:250px;
   width: 100%;
+  // background-color: white;
 }
 
 #img{
+  height:225px;
   width: 100%;
+  position: center;
 }
 
 .icon-tags{
@@ -35,6 +38,8 @@
 
 }
 .card-item-name {
+  width:100%;
+  overflow: hidden;
   font-size: 11px;
   font-weight: bold;
   text-align: center;
@@ -46,13 +51,21 @@
 }
 
 .card-button{
+  color: black;
+  background-color: white;
   width: 100%;
-  border: 1px solid gray;
+  border: 2px solid black;
   height: 35px;
   border-radius: 3px;
   text-align: center;
-  a:{text-decoration: none;
+  font-size: 15px;
+
 }
+
+.card-button:hover{
+    text-decoration: none;
+    background-color:black;
+    color:white;
 }
 
 
@@ -63,3 +76,9 @@
 .modal {
   z-index: 999999 !important;
 }
+
+// .sticky-url{
+//   position: fixed;
+//   top: 36px;
+//   width: 100%
+// }
