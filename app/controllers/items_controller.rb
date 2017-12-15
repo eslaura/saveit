@@ -3,6 +3,7 @@ require 'nokogiri'
 require 'json'
 
 class ItemsController < ApplicationController
+# skip_before_action :authenticate_registration!, only: [:home]
 
   def new
     @item = Item.new
@@ -17,7 +18,7 @@ class ItemsController < ApplicationController
       @item.user = current_user
       @item.save
 
-      redirect_to edit_item_path(@item)
+      redirect_to user_dashboard_path
     end
   end
 
