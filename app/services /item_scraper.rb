@@ -26,7 +26,7 @@ class ItemScraper
   end
 
   def scrape_lululemon(url)
-    url_chunk = url[/p\/.*\?/].chomp("?")
+    url_chunk = url[/p\/.*/]
     url_api = "https://shop.lululemon.com/api/#{url_chunk}"
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
@@ -35,14 +35,15 @@ class ItemScraper
     category = info['data']['attributes']['product-summary']['product-category']
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
-    description = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes'].join(",")
+    description_first = info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricPurposes'] || info['data']['attributes']['product-attributes']['product-content-fabric'][0]['fabricId']
+    description_first.class == Array ? description = description_first.join(", ") : description = description_first
     attributes = {name: name, price: price, url_api: url_api, src: src, description: description, url: url, store: "LuLuLemon"}
     return attributes
   end
 
   def scrape_newlook(url)
     product_id = url[/p\/\d+/].sub("p/","")
-    url_api = "http://www.newlook.com/de/json/product/productDetails.json?productCode=#{product_id}"
+    url_api = "http://www.newlook.com/row/json/product/productDetails.json?productCode=#{product_id}"
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
     name = info['data']['name']
