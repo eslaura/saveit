@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/user_dashboard', to: 'items#user_items'
 
+  get '/wish_list', to: 'items#wish_list'
+
   get '/netaporter', to: "items#netaporter"
 
   root to: 'pages#home'

@@ -42,6 +42,12 @@ class ItemsController < ApplicationController
     @items = Item.where(user: current_user)
   end
 
+  def wish_list
+    @item = Item.new
+
+    @items = Item.where(user: current_user)
+  end
+
   private
 
   def url_params
