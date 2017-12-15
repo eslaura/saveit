@@ -9,7 +9,7 @@ console.log(btns)
 for(btn of btns) {
   console.log(btn)
   const modalId = event.target.getAttribute("data-id")
-  console.log(btn.)
+  // console.log(btn.)
 }
 // When the user clicks the button, open the modal
 // for(btn of btns) {
