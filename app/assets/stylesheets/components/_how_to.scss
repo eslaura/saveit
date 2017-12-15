@@ -14,17 +14,20 @@
 }
 
 .how_to_item {
-flex-grow: 1;
+// flex-grow: 1;
+width: 25%;
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
  p{
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: black;
 }
 }
 
 
-
+.description{
+  font-size: 12px;
+}
