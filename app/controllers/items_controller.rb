@@ -54,9 +54,9 @@ class ItemsController < ApplicationController
     @items = Item.where(user: current_user)
     @items.each do |item|
       if item.notifications.all? { |notification| notification.read }
-        item.update (notification: false)
+        item.update(notification: false)
       elsif item.notifications.all? { |notification| notification.read = false }
-        item.update (notification: true)
+        item.update(notification: true)
       end
     end
   end

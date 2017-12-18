@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/wish_list', to: 'items#wish_list'
 
-  get '/netaporter', to: "items#netaporter"
+  patch '/item_notification', to: 'items#notification'
 
   get '/toggle_favorite', to: "items#toggle_favorite"
 
