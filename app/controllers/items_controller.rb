@@ -49,6 +49,20 @@ class ItemsController < ApplicationController
     @items = Item.where(user: current_user)
   end
 
+  def toggle_favorite
+    # get object from link to (object == item)
+    @item = Item.find(params[:item].to_i)
+    #raise
+    # get favorite value from object from db
+    value = @item.favorite
+    # change favorite value from the object
+    # if it was true, then false
+    # if it was false, then true
+    @item.update(favorite: !value)
+    #raise
+    redirect_to user_dashboard_path
+  end
+
   private
 
   def url_params

@@ -3,6 +3,7 @@
 <div class="cards-container">
   <div class="row">
     <% @items.each do |item| %>
+
     <% if item.favorite == true %>
       <div class="col-xs-12 col-sm-3">
         <%= render partial: "shared/card", locals: { item: item } %>
