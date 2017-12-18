@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/netaporter', to: "items#netaporter"
 
+  get '/toggle_favorite', to: "items#toggle_favorite"
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
