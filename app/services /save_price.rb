@@ -15,7 +15,7 @@ class SavePrice
         Price.create(item_id: item.id, price: price)
         price_change(item, price)
       elsif item.url.include? "newlook"
-        price = 23
+        price = scrape_lululemon_price(item.url_api)
         Price.create(item_id: item.id, price: price)
         price_change(item, price)
       end
