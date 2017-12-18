@@ -8,15 +8,15 @@ class SavePrice
     Item.all.each do |item|
       if item.url.include? "ikea"
         price = scrape_ikea_price(item.url)
-        Price.create(item_id: item.id, price: price)
+        Price.create!(item_id: item.id, price: price)
         price_change(item, price)
       elsif item.url.include? "lululemon"
         price = scrape_lululemon_price(item.url_api)
-        Price.create(item_id: item.id, price: price)
+        Price.create!(item_id: item.id, price: price)
         price_change(item, price)
       elsif item.url.include? "newlook"
-        price = 23
-        Price.create(item_id: item.id, price: price)
+        price = 23 #Change
+        Price.create!(item_id: item.id, price: price)
         price_change(item, price)
       end
     end
