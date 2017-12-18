@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 20171218160920) do
     t.string   "color"
     t.string   "original_store"
     t.integer  "size"
-    t.float    "price"
+    t.integer  "price_cents"
     t.integer  "user_id"
     t.boolean  "favorite"
-    t.float    "user_price"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "user_price_cents"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "src"
     t.string   "url_api"
     t.boolean  "notification",   default: false
@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20171218160920) do
   end
 
   create_table "prices", force: :cascade do |t|
-    t.float    "price"
+    t.integer  "price_cents"
     t.string   "currency"
     t.integer  "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["item_id"], name: "index_prices_on_item_id", using: :btree
   end
 
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20171218160920) do
     t.string   "surname"
     t.integer  "age"
     t.integer  "registration_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20171218160920) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "admin",                default: false
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 
