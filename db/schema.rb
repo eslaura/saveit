@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218115437) do
-
+ActiveRecord::Schema.define(version: 20171218141308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,8 +44,15 @@ ActiveRecord::Schema.define(version: 20171218115437) do
     t.datetime "updated_at",       null: false
     t.string   "src"
     t.string   "url_api"
-    t.boolean  "notification"
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "item_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "read",       default: false
+    t.index ["item_id"], name: "index_notifications_on_item_id", using: :btree
   end
 
   create_table "prices", force: :cascade do |t|
@@ -80,12 +86,20 @@ ActiveRecord::Schema.define(version: 20171218115437) do
     t.string   "surname"
     t.integer  "age"
     t.integer  "registration_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "notifications", "items"
   add_foreign_key "prices", "items"
   add_foreign_key "users", "registrations"
 end

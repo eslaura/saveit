@@ -15,7 +15,7 @@ class SavePrice
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
       elsif item.url.include? "newlook"
-        price = 23 #Change
+        price = scrape_newlook_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
       end
@@ -25,11 +25,15 @@ class SavePrice
   private
 
   def price_change(item, price)
-    if item.price != price && price <= item.user_price
-      item.update(price: price)
-      item.update(notification: true)
-    elsif item.price != price
-      item.update(price: price)
+    if item.user_price
+      if item.price != price && price <= item.user_price
+        item.update(price: price)
+        notification = Notification.new
+        notification.item = item
+        notification.save
+      elsif item.price != price
+        item.update(price: price)
+      end
     end
   end
 
