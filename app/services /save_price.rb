@@ -27,8 +27,8 @@ class SavePrice
   def price_change(item, price)
     if item.user_price
       if item.price != price && price <= item.user_price
+        notification = Notification.new(old_price: item.price, new_price: price)
         item.update(price: price)
-        notification = Notification.new
         notification.item = item
         notification.save
       elsif item.price != price
