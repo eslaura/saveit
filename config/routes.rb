@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  devise_for :registrations, :controllers => { registrations: "registrations"}
+  devise_for :registrations, :controllers => {
+    registrations: "registrations/registrations",
+    omniauth_callbacks: 'registrations/omniauth_callbacks'
+  }
 
   resources :users, only: [ :show, :edit, :update ]
 
@@ -15,5 +18,7 @@ Rails.application.routes.draw do
   get '/netaporter', to: "items#netaporter"
 
   root to: 'pages#home'
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
