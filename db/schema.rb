@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20171218160920) do
     t.integer  "user_id"
     t.boolean  "favorite"
     t.integer  "user_price_cents"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "src"
     t.string   "url_api"
-    t.boolean  "notification",   default: false
+    t.boolean  "notification",     default: false
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
