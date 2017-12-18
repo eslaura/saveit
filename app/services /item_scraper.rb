@@ -18,7 +18,7 @@ class ItemScraper
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
     name = html_doc.css('#name').text.split.join
-    price = html_doc.css('#price1').text.split.join.gsub(/(\$|€)/,'').to_f
+    price = html_doc.css('#price1').text.split.join.gsub(/(\$|€)/,'').to_i
     src  = "http://www.ikea.com/" + html_doc.at('#productImg')['src']
     description = html_doc.css('#type').text.split.join
     attributes = {name: name, price: price, description: description, url: url, src: src, store: "Ikea"}
@@ -31,7 +31,7 @@ class ItemScraper
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
     name = info['data']['attributes']['product-summary']['product-name']
-    price = info['data']['attributes']['product-summary']['list-price'].to_f.round(2)
+    price = info['data']['attributes']['product-summary']['list-price'].to_i.round(2)
     category = info['data']['attributes']['product-summary']['product-category']
     src = info['data']['attributes']['product-carousel'][0]['image-info'][0]
     color = info['data']['attributes']['product-carousel'][0]['swatch-image']
@@ -47,7 +47,7 @@ class ItemScraper
     user_serialized = open(url_api).read
     info = JSON.parse(user_serialized)
     name = info['data']['name']
-    price = info['data']['price']['value'].to_f.round(2)
+    price = info['data']['price']['value'].to_i.round(2)
     src = info["data"]["primaryImage"]['url']
     attributes = {name: name, price: price, url_api: url_api, src: src, url: url, store: "NewLook"}
     return attributes
