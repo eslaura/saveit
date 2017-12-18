@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :registrations, :controllers => { registrations: "registrations"}
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount Attachinary::Engine => "/attachinary"
-
   devise_for :registrations, :controllers => {
     registrations: "registrations/registrations",
     omniauth_callbacks: 'registrations/omniauth_callbacks'

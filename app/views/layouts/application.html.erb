@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
     <title>Save It</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -11,6 +12,7 @@
 
   </head>
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
+
     <%= render 'shared/borders' %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
