@@ -6,3 +6,5 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require_tree .
+
+$(".alert" ).fadeOut(3000);

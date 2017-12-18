@@ -3,10 +3,12 @@
 <div class="cards-container">
   <div class="row">
     <% @items.each do |item| %>
-    <div class="col-xs-12 col-sm-3">
-      <%= render partial: "shared/card", locals: { item: item } %>
-    </div>
+    <% if item.favorite == true %>
+      <div class="col-xs-12 col-sm-3">
+        <%= render partial: "shared/card", locals: { item: item } %>
+      </div>
+    <% end  %>
     <% end %>
   </div>
 </div>
-  <%= link_to "Add a new item", new_item_path %>
+
