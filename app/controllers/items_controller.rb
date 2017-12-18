@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
       @item = Item.new(name: scrape[:name], description: scrape[:description], price: scrape[:price], url: scrape[:url], src: scrape[:src], url_api: scrape[:url_api], original_store: scrape[:store])
       @item.user = current_user
       @item.save
+      Price.create(item_id: @item.id, price: @item.price)
 
       redirect_to user_dashboard_path
     end
