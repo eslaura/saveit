@@ -1,9 +1,11 @@
-<div class="edit text-center">
-  <%= @item.name %>
-  <%= @item.description %>
-  <%= @item.price %>
-  <%= simple_form_for(@item) do |f| %>
-    <%= f.input :user_price %>
-    <%= f.submit "Save", class:"btn btn-primary" %>
-  <% end %>
+<div class="container">
+  <div class="edit text-center">
+    <%= @item.name %>
+    <%= @item.description %>
+    <%= @item.price %>
+    <%= simple_form_for(@item) do |f| %>
+      <%= f.input :user_price %>
+      <%= f.submit "Save", class:"btn btn-black" %>
+    <% end %>
+  </div>
 </div>
