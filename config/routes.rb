@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   post "/update_new_notifications", to: "items#update_new_notifications", as: "update_new_notifications"
 
+  post "/update_notification", to: "items#update_notification", as: "update_notification"
 
   root to: 'pages#home'
   resources :users

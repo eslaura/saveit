@@ -23,12 +23,12 @@
               <% if item.notifications  %>
                 <% item.notifications.each do |notification| %>
                   <% if notification.read %>
-                    <div class="notification-read">
+                    <div id="notification-read">
                       <p> The price for <b><%= item.name %></b> from <b><%=item.original_store%></b> dropped from <b><%= notification.old_price%>€</b> to <b><%=notification.new_price%>€</b>
                       </p>
                     </div>
                   <% else %>
-                    <div class="notification-unread">
+                    <div id="notification-unread" data-url="<%= update_notification_url %>">
                       <p> The price for <b><%= item.name %></b> from <b><%=item.original_store%></b> dropped from <b><%= notification.old_price%>€</b> to <b><%=notification.new_price%>€</b>
                       </p>
                     </div>
