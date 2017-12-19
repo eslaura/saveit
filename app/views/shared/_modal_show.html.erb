@@ -33,7 +33,9 @@
             </div>
             <!-- Price Chart -->
             <div>
-              <canvas id="price_line" width="100" height="100"></canvas>
+              e
+              <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%e %b"), value] }.sort_by { |x| DateTime.parse(x[0])} %>
+              <!-- - %H:%M" Hours-->
             </div>
             <!-- Price Chart -->
           </div>
