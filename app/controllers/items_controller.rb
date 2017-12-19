@@ -69,8 +69,8 @@ class ItemsController < ApplicationController
     redirect_to user_dashboard_path
   end
 
-  def update_all
-    NotificationsDealer.new.update_notification
+  def update_new_notifications
+    NotificationsDealer.new.update_new_notifications
   end
 
   private
