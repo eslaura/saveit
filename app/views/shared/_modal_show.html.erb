@@ -1,10 +1,12 @@
 
-  <button type="button" data-toggle="modal" data-target="#myModal-<%= item.id %>">
-    <% if item.notification %>
-          <%= image_tag 'price-notification.png', id:'price-notification' %>
-    <% end %>
-    <%= image_tag item.src, id:'img', data:{ id: item.id }%>
-  </button>
+<!-- Modale Trigger -->
+<button type="button" data-toggle="modal" data-target="#myModal-<%= item.id %>">
+  <% if item.notification %>
+  <%= image_tag 'price-notification.png', id:'price-notification' %>
+  <% end %>
+  <%= image_tag item.src, id:'img', data:{ id: item.id }%>
+</button>
+<!-- Modale Trigger -->
 
 <!-- Modal -->
 <div class="modal fade" id="myModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -23,16 +25,17 @@
                 <div class="col-8 col-sm-6">
                   <strong>Price:</strong> <%= item.price %>€ <br>
                   <strong>Target Price:</strong> <%= item.user_price %>€
-
                 </div>
                 <div class="col-4 col-sm-6">
                   <strong>Store:</strong> <%= item.original_store %>
                 </div>
               </div>
             </div>
+            <!-- Price Chart -->
             <div>
               <canvas id="price_line" width="100" height="100"></canvas>
             </div>
+            <!-- Price Chart -->
           </div>
         </div>
         <div class="modal-footer">
@@ -44,25 +47,3 @@
       </div>
     </div>
   </div>
-
-<script>
-  var ctx = document.getElementById('price_line').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-</script>
