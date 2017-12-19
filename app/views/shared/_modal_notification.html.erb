@@ -1,9 +1,9 @@
-<div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal" id='notification-navbar' data-url="<%= update_all_url %>">
-  <% if current_user.items %>
-    <% if current_user.items.any? { |item| item.notification } %>
-      <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link", id: "notification-true" %>
+<div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal" id='notification-navbar' data-url="<%= update_new_notifications_url %>">
+  <% if Notification.all %>
+    <% if Notification.all.any? { |notification| notification.new_notification } %>
+      <%= button_to "notification", update_new_notifications_path, remote: true, class: "navbar-wagon-item navbar-wagon-link", id: "notification-true" %>
     <% else %>
-      <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= button_to "notification", update_new_notifications_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   <% end %>
 </div>

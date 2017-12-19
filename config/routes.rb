@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/facebook_login', to: "items#facebook_login"
 
-  post "/update_all", to: "items#update_all", as: "update_all"
+  post "/update_new_notifications", to: "items#update_new_notifications", as: "update_new_notifications"
 
 
   root to: 'pages#home'

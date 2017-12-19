@@ -1,7 +1,4 @@
 class NotificationsDealer
-  def initialize
-    @value = false
-  end
 
   def item_notification
     @items = Item.all
@@ -14,13 +11,10 @@ class NotificationsDealer
     end
   end
 
-  def update_notification
+  def update_new_notifications
     notifications = Notification.all
     notifications.each do |notification|
-      notification.update(read: true)
-    item_notification
+      notification.update(new_notification: false)
     end
   end
-
-
 end
