@@ -3,9 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- JS for price chart -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <!-- JS for price chart -->
     <title>Save It</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -32,6 +29,9 @@
   <!-- Application.js -->
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <!-- JS for price chart -->
+    <%= yield :charts_js %>
+    <!-- JS for price chart -->
   <!-- Application.js -->
     <%= yield(:js) %>
 
