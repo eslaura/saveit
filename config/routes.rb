@@ -16,6 +16,12 @@ Rails.application.routes.draw do
 
   get '/toggle_favorite', to: "items#toggle_favorite"
 
+
+  get '/facebook_login', to: "items#facebook_login"
+
+  post "/update_all", to: "items#update_all", as: "update_all"
+
+
   root to: 'pages#home'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
