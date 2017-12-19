@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218153732) do
+
+ActiveRecord::Schema.define(version: 20171219100613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,18 +42,21 @@ ActiveRecord::Schema.define(version: 20171218153732) do
     t.integer  "user_id"
     t.boolean  "favorite"
     t.integer  "user_price_cents"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "src"
     t.string   "url_api"
+    t.boolean  "notification",     default: false
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "item_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "read",       default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "read",            default: false
+    t.integer  "old_price_cents"
+    t.integer  "new_price_cents"
     t.index ["item_id"], name: "index_notifications_on_item_id", using: :btree
   end
 

@@ -68,6 +68,7 @@
 .navbar-wagon-link {
   color: black;
   font-size: 10px;
+  border: none;
 }
 .navbar-wagon-link:hover {
   color: pink;
@@ -103,5 +104,10 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+#price-notification-navbar {
+  position: absolute;
+  width: 25px;
 }
 
