@@ -1,4 +1,4 @@
-<div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal">
+<div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal" id='notification-navbar' data-url="<%= update_all_url %>">
   <% if current_user.items %>
     <% if current_user.items.any? { |item| item.notification } %>
       <%= image_tag 'price-notification.png', id:'price-notification-navbar'%>

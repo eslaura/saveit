@@ -64,6 +64,10 @@ class ItemsController < ApplicationController
     redirect_to user_dashboard_path
   end
 
+  def update_all
+    NotificationsDealer.new.update_notification
+  end
+
   private
 
   def url_params
