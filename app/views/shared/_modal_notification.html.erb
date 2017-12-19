@@ -3,7 +3,7 @@
     <% if Notification.all.any? { |notification| notification.new_notification } %>
       <%= button_to "notification", update_new_notifications_path, remote: true, class: "navbar-wagon-item navbar-wagon-link", id: "notification-true" %>
     <% else %>
-      <%= button_to "notification", update_new_notifications_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
+      notification
     <% end %>
   <% end %>
 </div>
@@ -16,7 +16,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"><%= "Notifications" %></h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body-notifications">
         <div class="container-fluid">
           <div class="row">
             <%  current_user.items.each do |item| %>
