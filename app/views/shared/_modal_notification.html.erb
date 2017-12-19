@@ -1,10 +1,11 @@
 <div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal" id='notification-navbar' data-url="<%= update_all_url %>">
   <% if current_user.items %>
     <% if current_user.items.any? { |item| item.notification } %>
-      <%= image_tag 'price-notification.png', id:'price-notification-navbar'%>
+      <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link", id: "notification-true" %>
+    <% else %>
+      <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   <% end %>
-  <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
 </div>
 
 <!-- Modal -->
@@ -37,12 +38,6 @@
             <% end %>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <div class="checkbox">
-          <label class="pull-left"><input type="checkbox" value="">Notify Me</label>
-        </div>
-
       </div>
     </div>
   </div>

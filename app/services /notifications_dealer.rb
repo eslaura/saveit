@@ -1,4 +1,8 @@
 class NotificationsDealer
+  def initialize
+    @value = false
+  end
+
   def item_notification
     @items = Item.all
     @items.each do |item|
@@ -17,4 +21,6 @@ class NotificationsDealer
     item_notification
     end
   end
+
+
 end

@@ -7,12 +7,12 @@ class SavePrice
   def scrape_price
     Item.all.each do |item|
       if item.url.include? "ikea"
-        price = 60000#scrape_ikea_price(item.url)
+        price = scrape_ikea_price(item.url)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification
       elsif item.url.include? "lululemon"
-        price = scrape_lululemon_price(item.url_api)
+        price = 3000 #scrape_lululemon_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification

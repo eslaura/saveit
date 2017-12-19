@@ -106,8 +106,14 @@
   border-top: 1px solid #E6E6E6;
 }
 
-#price-notification-navbar {
-  position: absolute;
-  width: 25px;
+.notification-navbar {
+  position: relative;
+  background-color: none;
 }
+
+
+#notification-true {
+  border-bottom: 2px solid rgba(243, 243, 21, 1);
+}
+
 
