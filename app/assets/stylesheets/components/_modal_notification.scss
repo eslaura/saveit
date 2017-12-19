@@ -1,7 +1,12 @@
 .notification-unread {
-  border: 1px solid #F3F315;
+  border: 1px solid lightgrey;
+  background-color: rgba(243, 243, 21, 0.5);
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .notification-read {
   border: 1px solid lightgrey;
+  margin: 20px;
+  border-radius: 5px;
 }

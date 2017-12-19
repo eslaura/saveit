@@ -1,6 +1,6 @@
 class NotificationsDealer
   def item_notification
-    @items = Item.where(user: current_user)
+    @items = Item.all
     @items.each do |item|
       if item.notifications.all? { |notification| notification.read }
         item.update(notification: false)
@@ -14,6 +14,7 @@ class NotificationsDealer
     notifications = Notification.all
     notifications.each do |notification|
       notification.update(read: true)
+    item_notification
     end
   end
 end
