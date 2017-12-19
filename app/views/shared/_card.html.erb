@@ -6,10 +6,10 @@
       <div class='icon-tags'>
         <%#= link_to "test", toggle_favorite_path(item: item) %>
         <%= link_to toggle_favorite_path(item: item), class: "favorite-icon" do %>
-          <% if item.favorite == false %>
-            <i class="fa fa-heart-o"></i>
-          <% else %>
+          <% if item.favorite %>
             <i class="fa fa-heart"></i>
+          <% else %>
+            <i class="fa fa-heart-o"></i>
           <% end %>
         <% end %>
         <%= link_to edit_item_path(item) do %>

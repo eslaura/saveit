@@ -1,7 +1,7 @@
 #notification-unread {
   border: 1px solid lightgrey;
   background-color: rgba(243, 243, 21, 0.5);
-  margin: 20px;
+  margin: 10px 5px;
   border-radius: 5px;
   padding: 10px;
   text-align: left;
@@ -13,7 +13,7 @@
 
 #notification-read {
   border: 1px solid lightgrey;
-  margin: 20px;
+  margin: 10px 5px;
   border-radius: 5px;
   padding: 10px;
   text-align: left;
@@ -21,4 +21,8 @@
   p {
     margin-bottom: 0px;
   }
+}
+
+.modal-body-notifications {
+  padding: 0px;
 }
