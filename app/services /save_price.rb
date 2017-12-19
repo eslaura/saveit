@@ -7,17 +7,17 @@ class SavePrice
   def scrape_price
     Item.all.each do |item|
       if item.url.include? "ikea"
-        price = scrape_ikea_price(item.url)
+        price = 70000 #scrape_ikea_price(item.url)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification
       elsif item.url.include? "lululemon"
-        price = scrape_lululemon_price(item.url_api)
+        price = 3500 #scrape_lululemon_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification
       elsif item.url.include? "newlook"
-        price = scrape_newlook_price(item.url_api)
+        price = 4000 #scrape_newlook_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification
@@ -29,6 +29,7 @@ class SavePrice
 
   def price_change(item, price)
     if item.user_price
+      binding.pry
       if item.price != price && price <= item.user_price
         notification = Notification.new(old_price: item.price, new_price: price)
         item.update(price: price)
