@@ -10,14 +10,17 @@ class SavePrice
         price = scrape_ikea_price(item.url)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
+        NotificationsDealer.new.item_notification
       elsif item.url.include? "lululemon"
         price = scrape_lululemon_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
+        NotificationsDealer.new.item_notification
       elsif item.url.include? "newlook"
         price = scrape_newlook_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
+        NotificationsDealer.new.item_notification
       end
     end
   end

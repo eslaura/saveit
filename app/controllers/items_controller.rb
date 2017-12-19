@@ -50,17 +50,6 @@ class ItemsController < ApplicationController
     @items = Item.where(user: current_user)
   end
 
-  def notification
-    @items = Item.where(user: current_user)
-    @items.each do |item|
-      if item.notifications.all? { |notification| notification.read }
-        item.update(notification: false)
-      else
-        item.update(notification: true)
-      end
-    end
-  end
-
   def toggle_favorite
     # get object from link to (object == item)
     @item = Item.find(params[:item].to_i)
