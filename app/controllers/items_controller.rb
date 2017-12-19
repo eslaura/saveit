@@ -73,6 +73,10 @@ class ItemsController < ApplicationController
     NotificationsDealer.new.update_new_notifications
   end
 
+  def update_notification
+    NotificationsDealer.new.update_notification
+  end
+
   private
 
   def url_params

@@ -11,6 +11,10 @@ class NotificationsDealer
     end
   end
 
+  def update_notification
+    raise
+  end
+
   def update_new_notifications
     notifications = Notification.all
     notifications.each do |notification|
