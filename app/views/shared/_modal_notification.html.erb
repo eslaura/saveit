@@ -4,7 +4,7 @@
       <%= image_tag 'price-notification.png', id:'price-notification-navbar'%>
     <% end %>
   <% end %>
-  <%= "Notification" %>
+  <%= button_to "notification", update_all_path, remote: true, class: "navbar-wagon-item navbar-wagon-link" %>
 </div>
 
 <!-- Modal -->

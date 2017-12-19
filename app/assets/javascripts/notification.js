@@ -5,6 +5,8 @@ notification.addEventListener("click", (event) => {
   fetch(`${notification.dataset.url}`, {
     method: 'POST'
   });
+
+
   console.log(event);
   console.log(event.currentTarget);
 });
