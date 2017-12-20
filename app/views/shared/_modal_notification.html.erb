@@ -25,10 +25,9 @@
                       </p>
                   </div>
                 <% else %>
-                  <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-unread" data-url="<%= update_notification_url %>">
+                  <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-unread" data-url="<%= update_notification_url %>" id="notification-toggle">
                     <%= button_to update_notification_path(id: notification.id), remote: true do %>
                       <p> The price for <b><%= notification.item.name %></b> from <b><%=notification.item.original_store%></b> dropped from <b><%= notification.old_price%>€</b> to <b><%=notification.new_price%>€</b>
-                        <span class="hidden"><%= notification.id %></span>
                       </p>
                     <% end %>
                   </div>

@@ -83,6 +83,10 @@ class ItemsController < ApplicationController
   def update_notification
     id = (params[:id].to_i)
     NotificationsDealer.new.update_notification(id)
+    respond_to do |format|
+      format.html { redirect_to user_dashboard_path }
+      format.js
+    end
   end
 
   private
