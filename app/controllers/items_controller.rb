@@ -65,8 +65,11 @@ class ItemsController < ApplicationController
     # if it was true, then false
     # if it was false, then true
     @item.update(favorite: !value)
-    #raise
-    redirect_to user_dashboard_path
+      respond_to do |format|
+        format.html { redirect_to user_dashboard_path }
+        format.js  # <-- will render `app/views/items/toggle_favorite.js.erb`
+      end
+    # redirect_to user_dashboard_path
   end
 
   def update_new_notifications
