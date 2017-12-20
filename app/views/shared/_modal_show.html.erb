@@ -20,32 +20,34 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-9">
-              <%= image_tag item.src, id:'img', data:{ id: item.id }%></div>
-              <div class="row">
-                <div class="col-8 col-sm-6">
-                  <strong>Price:</strong> <%= item.price %>€ <br>
-                  <strong>Target Price:</strong> <%= item.user_price %>€
-                </div>
-                <div class="col-4 col-sm-6">
-                  <strong>Store:</strong> <%= item.original_store %>
-                </div>
+              <div style="height: 300px">
+                <%= image_tag item.src, id:'img', data:{ id: item.id }, :style => "height: 100%"%>
               </div>
             </div>
-            <!-- Price Chart -->
-            <div>
-              e
-              <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%e %b"), value] }.sort_by { |x| DateTime.parse(x[0])} %>
-              <!-- - %H:%M" Hours-->
+            <div class="row">
+              <div class="col-8 col-sm-6"> <br>
+                <strong>Price:</strong> <%= item.price %>€ <br>
+                <strong>Target Price:</strong> <%= item.user_price %>€
+              </div>
+              <div class="col-4 col-sm-6"> <br>
+                <strong>Store:</strong> <%= item.original_store %>
+              </div>
             </div>
-            <!-- Price Chart -->
           </div>
-        </div>
-        <div class="modal-footer">
-          <div class="checkbox">
-            <label class="pull-left"><input type="checkbox" value="">Notify Me</label>
+          <!-- Price Chart -->
+          <div> <br>
+            <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%e %b"), value] }.sort_by { |x| DateTime.parse(x[0])} %>
+            <!-- - %H:%M" Hours-->
           </div>
-          <a href="<%= item.url %>" target="_blank" class="btn btn-primary">BUY</a>
+          <!-- Price Chart -->
         </div>
+      </div>
+      <div class="modal-footer">
+        <div class="checkbox">
+          <label class="pull-left"><input type="checkbox" value="">Notify Me</label>
+        </div>
+        <a href="<%= item.url %>" target="_blank" class="btn btn-primary">BUY</a>
       </div>
     </div>
   </div>
+</div>
