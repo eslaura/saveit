@@ -11,8 +11,10 @@ class NotificationsDealer
     end
   end
 
-  def update_notification
-    raise
+  def update_notification(id)
+    notification = Notification.find(id)
+    notification.update(read: true)
+    item_notification
   end
 
   def update_new_notifications

@@ -1,27 +1,28 @@
+// const notifications = document.getElementById("notification-navbar");
+// notifications.addEventListener("click", (event) => {
+//   fetch(`${notifications.dataset.url}`, {
+//     method: 'POST'
+//   });
+//   console.log(event.target);
+// });
 
-$(window).scroll(function() {
-  var scroll = $(window).scrollTop();
-  console.log(scroll)
-  if (scroll >= 50) {
-    $('.floating-logo').removeClass('hidden');
-  }
-    if (scroll < 50) {
-    $('.floating-logo').addClass('hidden');
-  }
-});
+// const notification = document.getElementById("notification-unread");
+// notification.addEventListener("click", (event) => {
+//   console.log(event.target);
+//   console.log("Hello World please work!!");
+//   fetch(`${notification.dataset.url}`, {
+//     method: 'POST'
+//   });
 
 
-const notifications = document.getElementById("notification-navbar");
-notification.addEventListener("click", (event) => {
-  fetch(`${notifications.dataset.url}`, {
-    method: 'POST'
-  });
-});
 
-const notification = document.getElementById("notification-unread");
-notification.addEventListener("click", (event) => {
-  console_log("Hello World please work!!");
-  fetch(`${notification.dataset.url}`, {
-    method: 'POST'
-  });
-});
+// const notfi = document.querySelectorAll("#notification-unread");
+//   notfi.forEach(function(element) {
+//   element.addEventListener("click", (event) => {
+//     fetch(`${element.dataset.url}`, {
+//       method: 'POST',
+//       body: JSON.stringify({ id: event.currentTarget.querySelector(".hidden").innerText })
+//     });
+//     console.log(element.dataset.url);
+//   })
+// });
