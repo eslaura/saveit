@@ -1,11 +1,9 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
 
 <div class="form-body col-xs-12 col-sm-6 col-md-4 text-center col-md-offset-4">
     <%= simple_form_for @user do |f| %>
       <%= f.input :name %>
       <%= f.input :surname %>
       <%= f.input :age %>
-      <%= f.submit "Completed!", class: "btn btn-primary" %>
+      <%= f.submit "Completed!", class: "btn btn-black" %>
     <% end %>
   </div>

@@ -1,1 +1,11 @@
 <%= render partial: "shared/tiny_banner" %>
+<div class="container">
+  <%= current_user.first_name  %>
+  <%= current_user.last_name %>
+  <%= current_user.age %>
+    <%= link_to edit_user_path(current_user) do %>
+       <i class="fa fa-pencil"></i>
+    <% end %>
+</div>
+
+
