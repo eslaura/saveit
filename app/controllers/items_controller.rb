@@ -77,7 +77,8 @@ class ItemsController < ApplicationController
   end
 
   def update_notification
-    NotificationsDealer.new.update_notification
+    id = (params[:id].to_i)
+    NotificationsDealer.new.update_notification(id)
   end
 
   private

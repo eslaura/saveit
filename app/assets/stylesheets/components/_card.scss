@@ -36,6 +36,10 @@
   opacity: 0.9;
 }
 
+#test-notfication {
+  border: 3px solid red;
+}
+
 .icon-tags{
   // align-self: right;
   // margin-bottom: 15px;
@@ -74,6 +78,18 @@
   background-color: white;
   width: 100%;
   border: 2px solid black;
+  height: 35px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+.card-button-notification{
+  color: red;
+  background-color: white;
+  width: 100%;
+  border: 2px solid red;
   height: 35px;
   border-radius: 3px;
   text-align: center;
