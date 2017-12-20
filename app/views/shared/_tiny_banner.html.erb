@@ -1,3 +1,27 @@
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm sticky-nav">
+
+    <% if user_signed_in? %>
+
+
+      <!-- Links when logged in -->
+      <%= link_to "Wish-List", wish_list_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Items", user_dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= render partial: "shared/modal_notification"%>
+      <%= link_to "Profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to destroy_registration_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+      <% else %>
+      <%= link_to new_registration_session_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Log in") %>
+                 <% end  %>
+      <%= link_to new_registration_registration_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                 <%= t(".sign_out", default: "Sign up") %>
+                 <% end  %>
+    <% end %>
+  </div>
+
 <div class="tiny-banner sticky-url">
 <%= simple_form_for @item, html: {class: 'banner-form form-inline'} do |f| %>
 <%= f.input :url, placeholder: "PASTE YOUR URL HERE", label: false%>
