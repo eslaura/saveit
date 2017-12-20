@@ -12,7 +12,7 @@
 
   </head>
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
-
+    <%= link_to "Save it", root_path, class: "floating-logo hidden"  %>
     <%= render 'shared/borders' %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
