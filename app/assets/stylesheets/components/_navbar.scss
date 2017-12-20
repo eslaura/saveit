@@ -13,7 +13,7 @@
 }
 
 .sticky-nav {
-      position: sticky;
+    position: sticky;
     top: 36px;
     z-index: 999999999999999999;
     background-color: white;
@@ -21,17 +21,24 @@
 }
 
 .floating-logo {
-    text-transform: uppercase;
+  text-transform: uppercase;
   font-size: 16px;
   padding: 25px 0;
   text-decoration:none;
   font-family: 'Sarpanch', Helvetica;
   color: white;
-      z-index: 999999999999;
-    position: fixed;
-    top: 0;
-    left: calc(50% - 41px);
-    padding: 0;
+  z-index: 999999999999;
+  position: fixed;
+  top: 5px;
+  left: calc(50% - 41px);
+  padding: 0;
+  text-decoration: none;
+
+}
+
+.floating-logo:hover {
+  text-decoration: none;
+  color: yellow;
 
 }
 
