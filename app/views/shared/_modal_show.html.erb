@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-8 col-sm-6"> <br>
                 <strong>Price:</strong> <%= item.price %>€ <br>
-                <strong>Target Price:</strong> <%= item.user_price %>€
+                <!-- <strong>Target Price:</strong> <#%= item.user_price %>€ -->
               </div>
               <div class="col-4 col-sm-6"> <br>
                 <strong>Store:</strong> <%= item.original_store %>
@@ -36,7 +36,7 @@
           </div>
           <!-- Price Chart -->
           <div> <br>
-            <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%d %b"), value/100] }.sort_by { |x| DateTime.parse(x[0])} %>
+            <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,price| [date.strftime("%d %b"), price/100] }.sort_by { |x| DateTime.parse(x[0])} %>
             <!-- - %H:%M" Hours-->
           </div>
           <!-- Price Chart -->
@@ -46,7 +46,7 @@
         <div class="checkbox">
           <label class="pull-left"><input type="checkbox" value="">Notify Me</label>
         </div>
-        <a href="<%= item.url %>" target="_blank" class="btn btn-primary">BUY</a>
+        <a href="<%= item.url %>" target="_blank" class="btn btn-black">BUY</a>
       </div>
     </div>
   </div>
