@@ -17,7 +17,7 @@ class SavePrice
         price_change(item, price)
         NotificationsDealer.new.item_notification
       elsif item.url.include? "newlook"
-        price = 2800#scrape_newlook_price(item.url_api)
+        price = 2700#scrape_newlook_price(item.url_api)
         Price.create!(item_id: item.id, price: price)
         price_change(item, price)
         NotificationsDealer.new.item_notification
