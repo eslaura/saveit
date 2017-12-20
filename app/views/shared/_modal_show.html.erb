@@ -36,7 +36,7 @@
           </div>
           <!-- Price Chart -->
           <div> <br>
-            <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%e %b"), value] }.sort_by { |x| DateTime.parse(x[0])} %>
+            <%= line_chart item.prices.group(:created_at).sum(:price_cents).map{|date,value| [date.strftime("%d %b"), value/100] }.sort_by { |x| DateTime.parse(x[0])} %>
             <!-- - %H:%M" Hours-->
           </div>
           <!-- Price Chart -->
