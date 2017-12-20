@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Save It</title>
+    <%= favicon_link_tag "favicon.jpg" %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -11,9 +12,10 @@
 
   </head>
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
-
+    <%= link_to "Save it", root_path, class: "floating-logo hidden"  %>
     <%= render 'shared/borders' %>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/tabs' %>
     <%= render 'shared/flashes' %>
     <div class="all-content">
       <%= yield %>
