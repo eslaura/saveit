@@ -1,0 +1,13 @@
+console.log('hello <%= @item.id %>')
+
+// document.querySelectorAll(".favorite-icon").forEach((icon) => {
+//  icon.addEventListener("click", (event) => {
+//     event.preventDefault()
+//     console.log(event.currentTarget.querySelector('i'))
+//     event.currentTarget.querySelector('i').classList.toggle("fa-heart-o");
+//      event.currentTarget.querySelector('i').classList.toggle("fa-heart");
+//   });
+// });
+
+document.getElementById('card-<%= @item.id %>').querySelector('i').classList.toggle("fa-heart-o");
+document.getElementById('card-<%= @item.id %>').querySelector('i').classList.toggle("fa-heart");

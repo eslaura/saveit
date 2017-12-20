@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get '/wish_list', to: 'items#wish_list'
 
-  get '/toggle_favorite', to: "items#toggle_favorite"
+  post '/toggle_favorite', to: "items#toggle_favorite"
 
 
   get '/facebook_login', to: "items#facebook_login"
