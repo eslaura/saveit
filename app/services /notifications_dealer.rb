@@ -17,8 +17,8 @@ class NotificationsDealer
     item_notification
   end
 
-  def update_new_notifications
-    notifications = Notification.joins(:item).where(items: { user_id: current_user}).all
+  def update_new_notifications(user_id)
+    notifications = Notification.joins(:item).where(items: { user_id: user_id}).all
     notifications.each do |notification|
       notification.update(new_notification: false)
     end
