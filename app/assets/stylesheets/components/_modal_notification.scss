@@ -30,3 +30,13 @@
 .notification-text {
   border: none;
 }
+
+.modal-content-notifications {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 5px solid black;
+    width: 80%;
+    height: 400px;
+    overflow-y: scroll;
+}
