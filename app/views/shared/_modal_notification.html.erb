@@ -18,7 +18,7 @@
         <div class="container-fluid">
           <div class="row">
             <% if Notification.joins(:item).where(items: { user_id: current_user}).all %>
-              <% Notification.joins(:item).where(items: { user_id: current_user}).all.reverse.each do |notification| %>
+              <% Notification.joins(:item).where(items: { user_id: current_user}).all.sort_by{ |obj| obj.created_at }.reverse.each do |notification| %>
                 <% if notification.read %>
                   <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-read">
                   <!-- <div id="notification-read"> -->
