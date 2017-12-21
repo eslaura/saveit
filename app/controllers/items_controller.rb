@@ -73,7 +73,8 @@ class ItemsController < ApplicationController
   end
 
   def update_new_notifications
-    NotificationsDealer.new.update_new_notifications
+    user_id = current_user.id
+    NotificationsDealer.new.update_new_notifications(user_id)
     respond_to do |format|
       format.html { redirect_to user_dashboard_path }
       format.js
@@ -81,8 +82,8 @@ class ItemsController < ApplicationController
   end
 
   def update_notification
-    id = (params[:id].to_i)
-    NotificationsDealer.new.update_notification(id)
+    @id = (params[:id].to_i)
+    NotificationsDealer.new.update_notification(@id)
     respond_to do |format|
       format.html { redirect_to user_dashboard_path }
       format.js

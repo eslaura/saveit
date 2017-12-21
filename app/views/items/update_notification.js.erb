@@ -1,3 +1,15 @@
-const notificationToggle = document.getElementById("notification-toggle");
-  notificationToggle.classList.remove("notification-unread");
-  notificationToggle.classList.add("notification-read");
+const notificationToggle<%= @id %> = document.getElementById("notification-toggle-<%= @id %>");
+  notificationToggle<%= @id %>.classList.remove("notification-unread");
+  notificationToggle<%= @id %>.classList.add("notification-read");
+
+
+// const notfi = document.querySelectorAll("#notification-unread");
+//   notfi.forEach(function(element) {
+//   element.addEventListener("click", (event) => {
+//     fetch(`${element.dataset.url}`, {
+//       method: 'POST',
+//       body: JSON.stringify({ id: event.currentTarget.querySelector(".hidden").innerText })
+//     });
+//     console.log(element.dataset.url);
+//   })
+// });

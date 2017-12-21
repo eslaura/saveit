@@ -1,9 +1,9 @@
 
 <!-- Modale Trigger -->
 <div type="button" data-toggle="modal" data-target="#myModal-<%= item.id %>">
-  <% if item.notification %>
-  <%= image_tag 'price-notification.png', id:'price-notification' %>
-  <% end %>
+  <!-- <#% if item.notification %>
+  <#%= image_tag 'price-notification.png', id:'price-notification' %>
+  <#% end %> -->
   <%= image_tag item.src, id:'img', data:{ id: item.id }%>
 </div>
 <!-- Modale Trigger -->
