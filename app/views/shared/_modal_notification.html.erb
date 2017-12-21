@@ -1,6 +1,7 @@
 <div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal" id='notification-navbar'>
-  <% if Notification.all %>
-    <% notifications = Notification.all.any? { |notification| notification.new_notification } %>
+  <% if Notification.joins(:item).where(items: { user_id: current_user}).all %>
+  <% Notification.joins(:item).where(items: { user_id: current_user}).all.any? %>
+    <% notifications = Notification.joins(:item).where(items: { user_id: current_user}).all.any? { |notification| notification.new_notification } %>
     <%= button_to "notification", update_new_notifications_path, remote: true, id: "notification-button", class: "navbar-wagon-item navbar-wagon-link #{'notification-true' if notifications }" %>
   <% end %>
 </div>
@@ -16,8 +17,8 @@
       <div class="modal-body-notifications">
         <div class="container-fluid">
           <div class="row">
-            <% if Notification.all %>
-              <% Notification.all.reverse.each do |notification| %>
+            <% if Notification.joins(:item).where(items: { user_id: current_user}).all %>
+              <% Notification.joins(:item).where(items: { user_id: current_user}).all.reverse.each do |notification| %>
                 <% if notification.read %>
                   <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-read">
                   <!-- <div id="notification-read"> -->
@@ -25,8 +26,8 @@
                       </p>
                   </div>
                 <% else %>
-                  <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-unread" data-url="<%= update_notification_url %>" id="notification-toggle">
-                    <%= button_to update_notification_path(id: notification.id), remote: true do %>
+                  <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-unread" data-url="<%= update_notification_url %>" id="notification-toggle-<%=notification.id%>">
+                    <%= button_to update_notification_path(id: notification.id), remote: true, class: "notification-text" do %>
                       <p> The price for <b><%= notification.item.name %></b> from <b><%=notification.item.original_store%></b> dropped from <b><%= notification.old_price%>€</b> to <b><%=notification.new_price%>€</b>
                       </p>
                     <% end %>
