@@ -1,9 +1,6 @@
 // const notifications = document.getElementById("notification-navbar");
 // notifications.addEventListener("click", (event) => {
-//   fetch(`${notifications.dataset.url}`, {
-//     method: 'POST'
-//   });
-//   console.log(event.target);
+
 // });
 
 // const notification = document.getElementById("notification-unread");
