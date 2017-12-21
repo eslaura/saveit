@@ -9,7 +9,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content-notifications">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"><%= "Notifications" %></h4>
@@ -18,7 +18,7 @@
         <div class="container-fluid">
           <div class="row">
             <% if Notification.joins(:item).where(items: { user_id: current_user}).all %>
-              <% Notification.joins(:item).where(items: { user_id: current_user}).all.reverse.each do |notification| %>
+              <% Notification.joins(:item).where(items: { user_id: current_user}).all.sort_by{ |obj| obj.created_at }.reverse.each do |notification| %>
                 <% if notification.read %>
                   <div data-toggle="modal" data-target="#myModal-<%= notification.item.id %>" class="notification-read">
                   <!-- <div id="notification-read"> -->

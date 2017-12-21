@@ -1,7 +1,7 @@
 <%= render partial: "shared/tiny_banner" %>
 <div class="cards-container container">
   <div class="row">
-    <% @items.each do |item| %>
+    <% @items.sort_by { |item| item.created_at }.reverse.each do |item| %>
     <div class="col-xs-12 col-sm-3">
       <%= render partial: "shared/card", locals: { item: item } %>
     </div>
